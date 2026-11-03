@@ -1,7 +1,7 @@
 ---
 date: 2026-11-03
 project: woong_stock
-topic: 지금까지 작업 요약 (claude-brain 첫 등록용)
+topic: 지금까지 작업 요약 (claude_brain 첫 등록용)
 ---
 # 2026-11-03 woong_stock — 지금까지 요약
 

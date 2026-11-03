@@ -1,9 +1,9 @@
 ---
-project: claude-brain
-repo: woong2399/claude-brain (비공개)
+project: claude_brain
+repo: woong2399/claude_brain (비공개)
 updated: 2026-11-03
 ---
-# claude-brain (이 저장소)
+# claude_brain (이 저장소)
 
 ## 한 줄 설명
 여러 Claude 세션의 대화·결과를 md 로 남겨, 다음 세션이 이어서 일하게 하는 기억 저장소. 옵시디언 볼트로도 연다.
@@ -18,7 +18,7 @@ updated: 2026-11-03
 ## 다음 할 일
 1. PC 에서 저장소 clone → 옵시디언 "폴더를 볼트로 열기"
 2. Obsidian Git 플러그인 설치: 자동 pull(시작 시), 자동 commit·push(10분)
-3. 새 세션에서 "claude-brain 읽고 시작해" 로 써 보기
+3. 새 세션에서 "claude_brain 읽고 시작해" 로 써 보기
 
 ## 세션 기록
-- [[2026-11-03-claude-brain-셋업]]
+- [[2026-11-03-claude_brain-셋업]]
