@@ -16,7 +16,8 @@ updated:
 - 
 
 ## 이 폴더 안
-- `Sessions/` — 날짜별 세션 기록
+- `Sessions/` — 세션 요약 (열 때 읽음)
+- `Archive/` — 세션 상세 (필요할 때만 읽음)
 - `docs/` — 상세 문서
 - `code/` — 코드 조각·SQL
 

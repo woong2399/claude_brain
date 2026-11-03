@@ -12,7 +12,7 @@ updated: 2026-11-03
 | claude_brain | 설정 완료, 사용 중 | `.obsidian/` 커밋 여부 결정 ([[인수인계-2026-11-03]]) | [[Projects/claude_brain/README\|claude_brain]] |
 
 ## 폴더
-- `Projects/<이름>/` 프로젝트별 — `README.md`(요약) · `Sessions/`(날짜별 기록) · `docs/`(상세 문서) · `code/`(코드 조각)
+- `Projects/<이름>/` 프로젝트별 — `README.md`(요약) · `Sessions/`(요약) · `Archive/`(상세) · `docs/`(상세 문서) · `code/`(코드 조각)
 - `Knowledge/` 오래 쓰는 사실·결정·나에 대한 정보
 - `Inbox/` 사용자가 Claude 에게 남기는 메모
 - `Templates/` 노트 틀
