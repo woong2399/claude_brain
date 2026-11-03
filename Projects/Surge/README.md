@@ -9,7 +9,7 @@ updated: 2026-11-03
 [[Projects/Storage/README|Storage]] 에서 수집한 일봉 중, 정규장 종가 기준으로 10% 이상 상승한 종목을 모두 추린다.
 
 ## 현재 상태
-- 2026-11-04: 기간 **2026-11-01 이후(일단)**, 전일 종가 대비 10%↑ 기준으로 69건(11/02 48, 11/03 21)을 뽑아 MotherDuck `surge.main.picks`(date, code, name, pct, amount[백만 원])와 PC 폴더 `C:\Users\Jinwo\Documents\surge\`에 날짜별 CSV(`11월 2일.csv`, `11월 3일.csv`)로 저장했다. 합본 파일은 없다. 조건은 [[Projects/Surge/docs/조건정의서]], SQL 은 `code/picks_만들기.sql`.
+- 2026-11-04: 기간 **2026-11-01 이후(일단)**, 전일 종가 대비 10%↑ 기준으로 69건(11/02 48, 11/03 21)을 뽑아 MotherDuck `surge.main.picks`(date, code, name, pct, amount[백만 원])와 PC 폴더 `C:\Users\Jinwo\Documents\surge\`에 날짜별 CSV(`2026년 11월 2일.csv`, `2026년 11월 3일.csv`)로 저장했다. 합본 파일은 없다. 조건은 [[Projects/Surge/docs/조건정의서]], SQL 은 `code/picks_만들기.sql`.
 - 아직 정하지 않은 것: 제외 규칙, 거래대금 등 필터, 기간 확장 (미확인). Daily 의 11/03 17종목과 이번 21종목의 차이 원인도 미확인.
 
 ## 다음 할 일
