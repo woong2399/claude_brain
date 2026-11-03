@@ -10,7 +10,7 @@ updated: 2026-11-03
 |---|---|---|---|
 | Storage (주식 수집) | 16:00·21:00 두 번 자동 수집 켬 (BIOS 15:40), 첫 자동 실행 11-04 | 첫 자동 실행 확인, docs 변경 커밋 | [[Projects/Storage/README\|Storage]] |
 | Daily (주식 일지) | 옵시디언 보관함 구축 + 폰 동기화 완료, 11/02·11/03 입력 | 폰 화면 확인, 테마 입력, Syncthing 자동 실행 | [[Projects/Daily/README\|Daily]] |
-| Surge (10%↑ 종목 추리기) | 11/01 이후 10%↑ 69건을 MotherDuck `surge.picks` + 날짜별 CSV 로 저장 | Daily 로 옮기기, 제외 규칙·필터 정하기 | [[Projects/Surge/README\|Surge]] |
+| Surge (10%↑ 종목 추리기) | 11/01 이후 10%↑ 69건을 MotherDuck `surge.picks` + 날짜별 CSV 로 저장 | "1600 끝났어" 받으면 `surge_daily.py` 실행, Daily 로 옮기기, 제외 규칙·필터 정하기 | [[Projects/Surge/README\|Surge]] |
 | Brain (볼트 구축·규칙) | 설정 완료, 폴더 이름 정리, 열기 규칙 변경 | `.obsidian/` 커밋 여부 결정 ([[인수인계-2026-11-03]]) | [[Projects/Brain/README\|Brain]] |
 
 ## 폴더
