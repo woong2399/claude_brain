@@ -1,11 +1,11 @@
-# woong_stock 인수인계 (Claude 일반 채팅용)
+# storage 인수인계 (Claude 일반 채팅용)
 
 > 이 문서를 새 채팅의 첫 메시지로 붙여 넣는다. 2026-11-03 기준. 전체 작업 기록은 `docs/session-2026-11-03.md`.
 > 채팅의 Claude 는 **MotherDuck 커넥터**로 데이터를 조회한다. PC 는 꺼져 있어도 된다.
 
 ## 0. 채팅 Claude 에게 부탁
 
-- MotherDuck 의 **`woong_stock` 데이터베이스만 조회**한다. **데이터를 바꾸거나 지우지 않는다.**
+- MotherDuck 의 **`storage` 데이터베이스만 조회**한다. **데이터를 바꾸거나 지우지 않는다.**
   - `query_rw` 같은 쓰기 도구는 쓰지 않는다.
   - 같은 계정의 `stocks` DB(예전 매매일지·메모)는 건드리지 않는다.
 - KRX 정보데이터시스템(data.krx.co.kr)을 자동으로 대량 조회하지 않는다. 약관 위반으로 IP 가 차단된 적이 있다. KRX 데이터는 공식 Open API 로만 받는다.
@@ -21,9 +21,9 @@
   - 20:30 수집한다.
   - 수집이 끝나면 MotherDuck 에 업로드하고, 월말이면 G 드라이브로 백업하고, 텔레그램으로 알린 뒤 PC 를 끈다.
   - 주말에는 20:40 에 PC 를 끈다.
-- 코드: GitHub `woong2399/woong_stock` (비공개). 자세한 내용은 `docs/data-collection.md`, `docs/session-2026-11-03.md`.
+- 코드: GitHub `woong2399/storage` (비공개). 자세한 내용은 `docs/data-collection.md`, `docs/session-2026-11-03.md`.
 
-## 2. MotherDuck `woong_stock` 데이터 (분봉 제외)
+## 2. MotherDuck `storage` 데이터 (분봉 제외)
 
 | 테이블 | 내용 |
 |---|---|
@@ -52,6 +52,6 @@
 ```sql
 -- 최근 20일 일봉
 SELECT d.date, d.open, d.high, d.low, d.close, d.volume, d.amount
-FROM woong_stock.main.daily d JOIN woong_stock.main.stocks s USING (code)
+FROM storage.main.daily d JOIN storage.main.stocks s USING (code)
 WHERE s.name = '삼성전자' ORDER BY d.date DESC LIMIT 20;
 ```

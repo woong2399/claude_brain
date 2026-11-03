@@ -1,4 +1,4 @@
-# woong_stock 데이터 수집 정리
+# storage 데이터 수집 정리
 
 키움 **REST API**로 국내 주식 일봉·분봉을 모아 DuckDB 한 파일에 쌓는다. 데이터 원천이다.
 결정의 이유와 0단계 시험 결과는 [design.md](design.md)에 있다. 이 문서는 "지금 무엇이 어떻게 쌓여 있고, 쓸 때 무엇을 조심해야 하는지"를 정리한다.
@@ -13,8 +13,8 @@
 | 일봉 | 1985-01-04 ~ 2026-10-30, 시장 3종(KRX·KRX_REG·AL) × 원주가·수정주가 |
 | 분봉 | 2025-10-01 ~ 2026-10-30, 1분봉, KRX 원주가, 1억 6,927만 봉 (2,636종목) |
 | 남은 수집 실패 | 0 (collect_state 40,095건 모두 done) |
-| DB | `data/woong_stock.duckdb`, 약 20GB |
-| 매일 갱신 | 평일 20:30 `update` (작업 스케줄러 `woong_stock_update`), 끝나면 PC 종료 |
+| DB | `data/storage.duckdb`, 약 20GB |
+| 매일 갱신 | 평일 20:30 `update` (작업 스케줄러 `storage_update`), 끝나면 PC 종료 |
 | 알림·조회 | 텔레그램 봇 @woong99_alert_bot, `/status` |
 
 ## 2. 무엇을 모으나
@@ -59,7 +59,7 @@
 조회할 때는 이렇게 쓴다.
 
 ```python
-from woong_stock import db
+from storage import db
 con = db.connect()
 rel = db.get_prices(con, date(2020, 1, 1), date(2026, 10, 30))       # 기본: KRX_REG, 수정주가
 df = rel.df()
@@ -83,18 +83,18 @@ df = rel.df()
 
 ## 5. 실행 방법
 
-PowerShell에서 `C:\Users\Jinwo\woong_stock` 기준으로 실행한다.
+PowerShell에서 `C:\Users\Jinwo\storage` 기준으로 실행한다.
 
 | 명령 | 하는 일 |
 |---|---|
-| `.venv\Scripts\python -m woong_stock stocks` | 종목 목록 갱신 |
-| `.venv\Scripts\python -m woong_stock backfill-daily` | 전 종목 일봉 백필 (이어받기) |
-| `.venv\Scripts\python -m woong_stock backfill-minute [--months 202510 ...]` | 분봉 백필. 기본은 2025-10부터 이번 달까지 (오늘이 1일이면 이번 달은 뺀다) |
-| `.venv\Scripts\python -m woong_stock update` | 매일 작업 (아래) |
-| `.venv\Scripts\python -m woong_stock check [--days 7]` | 최근 일봉 검증 |
-| `.venv\Scripts\python -m woong_stock crosscheck` | 기존 Open API 데이터와 대조 (읽기 전용) |
-| `.venv\Scripts\python -m woong_stock bot` | 텔레그램 조회 봇. 계속 켜 둔다 |
-| `.venv\Scripts\python -m woong_stock dashboard [--lan]` | 표로 보는 대시보드 (http://127.0.0.1:8765). 수집 중에는 조회 안 됨 |
+| `.venv\Scripts\python -m storage stocks` | 종목 목록 갱신 |
+| `.venv\Scripts\python -m storage backfill-daily` | 전 종목 일봉 백필 (이어받기) |
+| `.venv\Scripts\python -m storage backfill-minute [--months 202510 ...]` | 분봉 백필. 기본은 2025-10부터 이번 달까지 (오늘이 1일이면 이번 달은 뺀다) |
+| `.venv\Scripts\python -m storage update` | 매일 작업 (아래) |
+| `.venv\Scripts\python -m storage check [--days 7]` | 최근 일봉 검증 |
+| `.venv\Scripts\python -m storage crosscheck` | 기존 Open API 데이터와 대조 (읽기 전용) |
+| `.venv\Scripts\python -m storage bot` | 텔레그램 조회 봇. 계속 켜 둔다 |
+| `.venv\Scripts\python -m storage dashboard [--lan]` | 표로 보는 대시보드 (http://127.0.0.1:8765). 수집 중에는 조회 안 됨 |
 | `scripts\backfill_all.bat` | 처음 한 번: stocks → 2025-10 분봉 → 대조 → 일봉 → 나머지 분봉 → 대조 |
 | `scripts\run_update.bat` | 작업 스케줄러가 부를 매일 실행 |
 
@@ -113,8 +113,8 @@ DB는 한 번에 한 프로그램만 쓸 수 있다. 백필 중에 `update` 등�
 
 ## 7. 클라우드 (MotherDuck)
 
-- 분봉을 뺀 데이터를 MotherDuck 의 `woong_stock` 데이터베이스에 올린다. 테이블: `daily`(정규장 수정주가 OHLCV + 정규장 원주가 종가 `raw_close` + KRX 일봉 거래대금 `amount` 백만 원), `stocks`, `kiwoom_mktcap`, `krx_daily`.
-- MotherDuck 이 DuckDB 2.0 을 아직 지원하지 않아 두 단계다: `python -m woong_stock cloud-export [--full]` 이 `data\cloud\` 에 Parquet 을 만들고, `.venv-md\Scripts\python scripts\cloud_upload.py`(DuckDB 1.5.6 전용 환경)가 올린다. 토큰은 `.env` 의 `MOTHERDUCK_TOKEN`.
+- 분봉을 뺀 데이터를 MotherDuck 의 `storage` 데이터베이스에 올린다. 테이블: `daily`(정규장 수정주가 OHLCV + 정규장 원주가 종가 `raw_close` + KRX 일봉 거래대금 `amount` 백만 원), `stocks`, `kiwoom_mktcap`, `krx_daily`.
+- MotherDuck 이 DuckDB 2.0 을 아직 지원하지 않아 두 단계다: `python -m storage cloud-export [--full]` 이 `data\cloud\` 에 Parquet 을 만들고, `.venv-md\Scripts\python scripts\cloud_upload.py`(DuckDB 1.5.6 전용 환경)가 올린다. 토큰은 `.env` 의 `MOTHERDUCK_TOKEN`.
 - 매일 update 뒤 `after_update.ps1` 이 자동으로 올린다. 처음만 전체(약 1,240만 행, 30초), 이후는 최근 10일 + 수정주가가 바뀐 종목만(수 초). 실패해도 알림 후 PC 는 끈다. 다시 전체를 올리려면 `cloud-export --full`.
 - `.venv-md` 는 Git 에 올리지 않는다. 새 PC 에서는 `python -m venv .venv-md` 후 `pip install duckdb==1.5.6`.
 
@@ -154,7 +154,7 @@ DB는 한 번에 한 프로그램만 쓸 수 있다. 백필 중에 `update` 등�
 ## 11. 운영 리스크
 
 - ⚠️ **키움 분봉은 약 1년만 보관한다.** 2026-11-01 현재 2025-11-03 이전 분봉은 주지 않는다. 지난 분봉은 우리 DB가 유일한 사본이므로 **백업이 필수다.**
-- **백업:** DB는 `data\woong_stock.duckdb`(C 드라이브)에 그대로 두고, G 드라이브(`G:\woong_stock_backup`)에 한 벌 복사한다. `scriptsackup.bat`이 임시 이름으로 복사한 뒤 바꿔치므로 도중에 끊겨도 이전 백업이 남는다. `run_update.bat`이 **그달의 마지막 평일**에만 update 직후 자동으로 부른다(그날이 휴장이어도 직전 영업일까지 다 들어 있다). 그 밖에는 `scriptsackup.bat`을 직접 실행한다. 복사 중 일시적으로 DB 크기의 2배(약 45GB)가 G에 필요하다.
+- **백업:** DB는 `data\storage.duckdb`(C 드라이브)에 그대로 두고, G 드라이브(`G:\storage_backup`)에 한 벌 복사한다. `scriptsackup.bat`이 임시 이름으로 복사한 뒤 바꿔치므로 도중에 끊겨도 이전 백업이 남는다. `run_update.bat`이 **그달의 마지막 평일**에만 update 직후 자동으로 부른다(그날이 휴장이어도 직전 영업일까지 다 들어 있다). 그 밖에는 `scriptsackup.bat`을 직접 실행한다. 복사 중 일시적으로 DB 크기의 2배(약 45GB)가 G에 필요하다.
 - **디스크:** DB 20GB, 분봉이 매달 약 1.3GB씩 는다. C 드라이브 여유는 현재 약 100GB, G는 약 103GB다.
 - **키움 서버 불안정:** 주말과 오전에 일시 오류가 몰릴 수 있다. 재시도와 끊긴 응답 검사로 막고, 그래도 실패하면 기록이 남으니 다시 실행하면 된다.
 - **봇:** `/status` 조회용. 쓰지 않을 예정이라 자동 실행하지 않는다. 진행 상황은 알림으로 받는다.
@@ -162,7 +162,7 @@ DB는 한 번에 한 프로그램만 쓸 수 있다. 백필 중에 `update` 등�
 ## 12. 남은 일
 
 - [x] DB는 C 드라이브에 두고 G 드라이브로 백업 (월말 마지막 평일 update 직후)
-- [x] 작업 스케줄러 등록 (`scripts\register_task.ps1`, 로그온한 경우에만 실행 — 자동 로그인 전제). 주말은 `woong_stock_weekend_off`가 토·일 20:40에 종료
+- [x] 작업 스케줄러 등록 (`scripts\register_task.ps1`, 로그온한 경우에만 실행 — 자동 로그인 전제). 주말은 `storage_weekend_off`가 토·일 20:40에 종료
 - [x] BIOS 자동 켜짐(매일 20:20, 요일 지정 불가)
 - [ ] 2026-11-02(월) 20:30 첫 자동 실행 결과 확인
 - [ ] 2026-11-30(월) 첫 월말 백업 확인
