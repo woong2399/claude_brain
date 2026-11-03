@@ -26,10 +26,10 @@ updated: 2026-11-03
 - MotherDuck 은 조회만. 같은 계정 `stocks` DB(매매일지)는 건드리지 않는다.
 - 거래대금은 2005년 이후만, 분석은 2015-06 이후 (가격제한폭 ±15% 시절 제외).
 
-## 상세 문서 위치 (woong_stock 저장소)
-- `docs/handoff-chat.md` — 일반 채팅용 인수인계 (전략 정의·연구 결과·SQL 예시)
-- `docs/session-2026-11-03.md` — 11-01~03 전체 작업 기록
-- `docs/data-collection.md`, `docs/design.md`
+## 이 폴더 안
+- `docs/` — 상세 문서 사본 (원본: woong_stock 저장소 `docs/`) → [[Projects/woong_stock/docs/README|문서 목록]]
+- `code/` — 조회 SQL 등 코드 조각 → [[조회-SQL]]
+- 수집 프로그램 전체 코드: GitHub `woong2399/woong_stock`
 
 ## 세션 기록
 - [[2026-11-03-woong_stock-요약]]

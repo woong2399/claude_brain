@@ -17,7 +17,7 @@ updated: 2026-11-03
 
 ## 폴더
 - `Sessions/` 세션별 기록 (날짜-프로젝트-주제)
-- `Projects/` 프로젝트별 현재 상태 한 장
+- `Projects/<이름>/` 프로젝트별 — `README.md`(요약) · `docs/`(상세 문서) · `code/`(코드 조각)
 - `Knowledge/` 오래 쓰는 사실·결정·나에 대한 정보
 - `Inbox/` 사용자가 Claude 에게 남기는 메모
 - `Templates/` 노트 틀
