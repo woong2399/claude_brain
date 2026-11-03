@@ -1,9 +1,9 @@
 ---
-project: woong_stock
+project: Stock_storage
 repo: woong2399/woong_stock (비공개)
 updated: 2026-11-03
 ---
-# woong_stock
+# Stock_storage (주식 수집, 저장소 이름: woong_stock)
 
 ## 한 줄 설명
 키움 REST API 로 코스피·코스닥 2,673종목의 일봉·분봉을 모아 DuckDB 에 쌓고, 급등 패턴·매수 근거를 백테스트로 찾는 프로젝트.
@@ -27,7 +27,7 @@ updated: 2026-11-03
 - 거래대금은 2005년 이후만, 분석은 2015-06 이후 (가격제한폭 ±15% 시절 제외).
 
 ## 이 폴더 안
-- `docs/` — 상세 문서 사본 (원본: woong_stock 저장소 `docs/`) → [[Projects/woong_stock/docs/README|문서 목록]]
+- `docs/` — 상세 문서 사본 (원본: woong_stock 저장소 `docs/`) → [[Projects/Stock_storage/docs/README|문서 목록]]
 - `code/` — 조회 SQL 등 코드 조각 → [[조회-SQL]]
 - 수집 프로그램 전체 코드: GitHub `woong2399/woong_stock`
 
