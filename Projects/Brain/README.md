@@ -1,9 +1,9 @@
 ---
-project: claude_brain
+project: Brain
 repo: woong2399/claude_brain (비공개)
 updated: 2026-11-03
 ---
-# claude_brain (이 저장소)
+# Brain (이 저장소)
 
 ## 한 줄 설명
 여러 Claude 세션의 대화·결과를 md 로 남겨, 다음 세션이 이어서 일하게 하는 기억 저장소. 옵시디언 볼트로도 연다.

@@ -1,5 +1,5 @@
 ---
-project: Stock_storage
+project: Storage
 kind: code
 ---
 # MotherDuck 조회 SQL 모음
