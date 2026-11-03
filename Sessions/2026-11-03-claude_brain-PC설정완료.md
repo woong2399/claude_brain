@@ -1,0 +1,28 @@
+---
+date: 2026-11-03
+project: claude_brain
+topic: PC 쪽 설정 완료 반영
+---
+# 2026-11-03 claude_brain — PC 설정 완료
+
+## 한 줄 요약
+PC 쪽 설정(clone, 옵시디언 볼트, Obsidian Git)이 끝났다고 사용자가 알려 와 기록에 반영했다. "claude_brain 읽고 시작해" 시험도 통과했다.
+
+## 한 일
+- 새 세션에서 `00_Index.md` → 프로젝트 README → `Inbox/` 순서로 읽고 현재 상태를 요약했다. (시험 4번 통과)
+- 사용자 말에 따라 PC 쪽 설정을 "완료"로 고쳤다: [[Projects/claude_brain/README]], [[00_Index]], [[인수인계-2026-11-03]].
+
+## 결정 (이유)
+- 인수인계 문서의 "남은 일"은 지우지 않고 완료 표시만 한다. 나중에 같은 설정을 다시 해야 할 때 절차로 쓸 수 있다.
+
+## 결과물
+- 이 PC 의 작업 폴더는 `C:\Users\Jinwo\Documents\Obsidian\claude_brain`.
+- `.obsidian/` 에 Obsidian Git 등 플러그인 파일이 생겼으나 **커밋하지 않았다** (볼트 개인 설정이라 저장소에 넣을지 미정).
+
+## 미해결·주의
+- Obsidian Git 의 세부 값(시작 시 pull, 10분 자동 commit·push)은 사용자 말만 있고 **직접 확인하지 않았다 (미확인)**.
+- `.obsidian/` 파일을 저장소에 둘지 `.gitignore` 에 넣을지 정하지 않았다.
+
+## 다음 할 일
+1. woong_stock: 성공 정의를 "−20% 손절 전 2배"로 바꿔 재검증 → [[Projects/woong_stock/README]]
+2. `.obsidian/` 을 커밋할지 무시할지 결정

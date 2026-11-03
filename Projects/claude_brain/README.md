@@ -14,13 +14,14 @@ updated: 2026-11-03
 
 ## 현재 상태
 - 뼈대 생성, GitHub `main` push 완료, Claude 앱 권한 추가 완료.
-- PC 쪽(clone·옵시디언·Obsidian Git)은 남음 → [[인수인계-2026-11-03]]
+- PC 쪽 설정 완료 (2026-11-03, 사용자 확인): clone, 옵시디언 볼트, Obsidian Git. 세부 값(10분 자동 동기화)은 미확인.
+- "claude_brain 읽고 시작해" 시험 통과.
 
 ## 다음 할 일
-1. PC 에서 저장소 clone → 옵시디언 "폴더를 볼트로 열기"
-2. Obsidian Git 플러그인 설치: 자동 pull(시작 시), 자동 commit·push(10분)
-3. 새 세션에서 "claude_brain 읽고 시작해" 로 써 보기
+1. `.obsidian/` 설정·플러그인 파일을 커밋할지 `.gitignore` 로 뺄지 결정
+2. 쓰면서 불편한 점이 있으면 `CLAUDE.md` 규칙 고치기
 
 ## 세션 기록
+- [[2026-11-03-claude_brain-PC설정완료]]
 - [[2026-11-03-claude_brain-셋업]]
 - [[인수인계-2026-11-03]] ← 새 세션은 여기부터
