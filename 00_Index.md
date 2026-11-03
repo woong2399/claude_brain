@@ -9,7 +9,7 @@ updated: 2026-11-03
 | 프로젝트 | 상태 | 다음 할 일 | 노트 |
 |---|---|---|---|
 | Stock_storage (주식 수집) | 자동 수집 운영 중, 매수 근거 연구 단계 | "−20% 손절 전 2배"로 성공 정의 바꿔 재검증 | [[Projects/Stock_storage/README\|Stock_storage]] |
-| Daily (주식 일지) | 폴더만 생성, 기록 없음 | 첫 일지 쓰기 | [[Projects/Daily/README\|Daily]] |
+| Daily (주식 일지) | 옵시디언 보관함 구축 + 폰 동기화 완료, 11/02 입력 | 폰 화면 확인, 테마 입력, Syncthing 자동 실행 | [[Projects/Daily/README\|Daily]] |
 | claude_brain | 설정 완료, 사용 중 | `.obsidian/` 커밋 여부 결정 ([[인수인계-2026-11-03]]) | [[Projects/claude_brain/README\|claude_brain]] |
 
 ## 폴더
