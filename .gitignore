@@ -2,3 +2,5 @@
 .obsidian/cache
 .trash/
 .DS_Store
+.obsidian/plugins/obsidian-git/main.js
+.obsidian/plugins/obsidian-git/styles.css
