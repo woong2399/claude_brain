@@ -14,6 +14,8 @@ updated: 2026-11-03
 
 - 매일 데이터: 사용자가 "1600 끝났어"라고 알리면 Claude 가 `surge_daily.py` 로 그날 picks·CSV 를 만든다 (16:00 값 사용, 2026-11-04 결정). Storage 의 `after_update.ps1` 은 건드리지 않는다. 스크립트 위치 `C:\Users\Jinwo\Documents\surge\surge_daily.py`, 사본 `code/surge_daily.py`.
 
+- 애프터마켓 값은 만들지 않는다. 정규장 기준만 (2026-11-04 사용자 결정). 거래대금은 사용자가 Storage 에서 다시 backfill 하며, 끝나면 이미 만든 날짜를 `surge_daily.py` 로 다시 돌려 `amount` 를 맞춘다.
+
 ## 다음 할 일
 0. 11-04 16:00 첫 자동 수집이 끝나면 "1600 끝났어"를 받아 `surge_daily.py` 를 처음 실제 날짜로 돌려 확인하기
 1. Daily 세션에서 `surge.main.picks` 를 읽어 옵시디언 일지로 옮기기 (Daily 노트에 가져오는 곳도 한 줄 적기)
