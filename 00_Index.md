@@ -9,7 +9,7 @@ updated: 2026-11-03
 | 프로젝트 | 상태 | 다음 할 일 | 노트 |
 |---|---|---|---|
 | woong_stock | 자동 수집 운영 중, 매수 근거 연구 단계 | "−20% 손절 전 2배"로 성공 정의 바꿔 재검증 | [[Projects/woong_stock/README\|woong_stock]] |
-| claude_brain | 막 만듦 | 옵시디언에서 볼트 열고 Obsidian Git 연결 | [[Projects/claude_brain/README\|claude_brain]] |
+| claude_brain | GitHub 올림, PC 설정 남음 | PC Remote Control 켜기 → clone → Obsidian Git ([[인수인계-2026-11-03]]) | [[Projects/claude_brain/README\|claude_brain]] |
 
 ## 최근 세션
 - [[2026-11-03-claude_brain-셋업]]

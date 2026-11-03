@@ -13,7 +13,8 @@ updated: 2026-11-03
 - GitHub 비공개 저장소 ↔ PC 옵시디언 (Obsidian Git 플러그인) ↔ 클라우드 세션 (저장소를 세션에 붙여 읽고 씀)
 
 ## 현재 상태
-- 뼈대 생성: CLAUDE.md, 00_Index, Templates, woong_stock 요약.
+- 뼈대 생성, GitHub `main` push 완료, Claude 앱 권한 추가 완료.
+- PC 쪽(clone·옵시디언·Obsidian Git)은 남음 → [[인수인계-2026-11-03]]
 
 ## 다음 할 일
 1. PC 에서 저장소 clone → 옵시디언 "폴더를 볼트로 열기"
@@ -22,3 +23,4 @@ updated: 2026-11-03
 
 ## 세션 기록
 - [[2026-11-03-claude_brain-셋업]]
+- [[인수인계-2026-11-03]] ← 새 세션은 여기부터
