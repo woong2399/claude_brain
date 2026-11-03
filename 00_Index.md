@@ -11,14 +11,8 @@ updated: 2026-11-03
 | woong_stock | 자동 수집 운영 중, 매수 근거 연구 단계 | "−20% 손절 전 2배"로 성공 정의 바꿔 재검증 | [[Projects/woong_stock/README\|woong_stock]] |
 | claude_brain | 설정 완료, 사용 중 | `.obsidian/` 커밋 여부 결정 ([[인수인계-2026-11-03]]) | [[Projects/claude_brain/README\|claude_brain]] |
 
-## 최근 세션
-- [[2026-11-03-claude_brain-PC설정완료]]
-- [[2026-11-03-claude_brain-셋업]]
-- [[2026-11-03-woong_stock-요약]]
-
 ## 폴더
-- `Sessions/` 세션별 기록 (날짜-프로젝트-주제)
-- `Projects/<이름>/` 프로젝트별 — `README.md`(요약) · `docs/`(상세 문서) · `code/`(코드 조각)
+- `Projects/<이름>/` 프로젝트별 — `README.md`(요약) · `Sessions/`(날짜별 기록) · `docs/`(상세 문서) · `code/`(코드 조각)
 - `Knowledge/` 오래 쓰는 사실·결정·나에 대한 정보
 - `Inbox/` 사용자가 Claude 에게 남기는 메모
 - `Templates/` 노트 틀
