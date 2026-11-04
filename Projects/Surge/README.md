@@ -12,22 +12,21 @@ updated: 2026-11-03
 - 2026-11-04: 기간 **2026-11-01 이후(일단)**, 전일 종가 대비 10%↑ 기준으로 69건(11/02 48, 11/03 21)을 뽑아 MotherDuck `surge.main.picks`(date, code, name, pct, amount[백만 원])와 PC 폴더 `C:\Users\Jinwo\Documents\surge\`에 날짜별 CSV(`2026년 11월 2일.csv`, `2026년 11월 3일.csv`)로 저장했다. 합본 파일은 없다. 조건은 [[Projects/Surge/docs/조건정의서]], SQL 은 `code/picks_만들기.sql`.
 - 아직 정하지 않은 것: 제외 규칙, 거래대금 등 필터, 기간 확장 (미확인). Daily 의 11/03 17종목과 이번 21종목의 차이 원인도 미확인.
 
-- 매일 데이터: 사용자가 "1600 끝났어"라고 알리면 Claude 가 `surge_daily.py` 로 그날 picks·CSV 를 만든다 (16:00 값 사용, 2026-11-04 결정). Storage 의 `after_update.ps1` 은 건드리지 않는다. 스크립트 위치 `C:\Users\Jinwo\Documents\surge\surge_daily.py`, 사본 `code/surge_daily.py`.
-
-- 애프터마켓 값은 만들지 않는다. 정규장 기준만 (2026-11-04 사용자 결정). 거래대금은 사용자가 Storage 에서 다시 backfill 하며, 끝나면 이미 만든 날짜를 `surge_daily.py` 로 다시 돌려 `amount` 를 맞춘다.
+- **매일 데이터 (2026-11-04 바뀜):** 사용자가 "1600 끝났어"라고 알리면 Claude 가 `surge_daily.py` 로 그날 CSV 를 만든다. 스크립트는 Storage 로컬 DuckDB 를 **읽기 전용**으로 읽고 CSV 만 만든다 (MotherDuck 에 쓰지 않음). 거래대금은 정규장 분봉 추정 `amount_est`, 애프터마켓은 안 만든다. Storage 수집 중(16:00~17:20경)에는 DB 가 잠겨 있으니 끝난 뒤 돌린다. 스크립트 `C:\Users\Jinwo\Documents\surge\surge_daily.py`, 사본 `code/surge_daily.py`.
+- MotherDuck `surge.main.picks`(69행)는 처음 한 번 만든 옛 사본이라 더 갱신하지 않는다 (`amount` 는 애프터 포함). 지울지는 미정.
 
 ## 다음 할 일
 0. 11-04 16:00 첫 자동 수집이 끝나면 "1600 끝났어"를 받아 `surge_daily.py` 를 처음 실제 날짜로 돌려 확인하기
-1. Daily 세션에서 `surge.main.picks` 를 읽어 옵시디언 일지로 옮기기 (Daily 노트에 가져오는 곳도 한 줄 적기)
+1. Daily 세션이 일지로 가져오는 방법 정하기 (지금은 날짜별 CSV 뿐이고 MotherDuck 은 갱신 안 함 → CSV 를 쓸지, MotherDuck 에도 올릴지)
 2. 11/03 17종목(Daily) vs 21종목(Surge) 차이 확인 → 거래대금 필터 등 기준 정하기
 3. 제외 규칙(신규상장 첫날, 거래정지 직후, 수정주가 변경일)과 기간 확장 여부 정하기, 정하면 `docs/조건정의서` 에 반영
 
 ## 중요한 결정
 - 데이터는 MotherDuck `storage.daily`(정규장 수정주가)를 **조회만** 한다. 기존 DB 에는 쓰지 않는다.
-- 결과는 별도 MotherDuck DB `surge` 에 저장한다 (Daily 세션이 SQL 로 날짜별로 바로 읽기 위해).
+- 결과는 처음에 별도 MotherDuck DB `surge` 에 저장하기로 했으나, 2026-11-04 스크립트가 로컬 DB 를 읽고 CSV 만 만드는 방식으로 바뀌었다 (사용자 확인). 이후 MotherDuck 은 갱신하지 않는다.
 - 분석 기간은 "일단 2026-11-01 이후" (사용자 결정, 나중에 확장 가능).
 - PC 사본은 날짜별 CSV 로 저장한다 (사용자 요청). 파일 이름은 `2026년 11월 2일.csv` 형식.
-- 등락률은 정규장 종가 기준. 거래대금 `amount` 는 애프터마켓 포함 값 그대로 둔다 (2026-11-04 사용자 결정). 정규장 값이 필요하면 분봉 합산 추정 → [[Projects/Surge/docs/조건정의서]].
+- 등락률은 정규장 종가 기준. 거래대금은 정규장 분봉 추정 `amount_est` (애프터마켓 제외)로 바뀌었다 (2026-11-04). 11/02·11/03 의 옛 `amount` 는 애프터 포함 → [[Projects/Surge/docs/조건정의서]].
 - 추려진 종목 전체 목록은 볼트에 넣지 않는다 (행이 많아 동기화가 무거워진다). 요약과 통계만 둔다.
 
 ## 이 폴더 안

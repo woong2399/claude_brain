@@ -10,7 +10,7 @@ updated: 2026-11-03
 |---|---|---|---|
 | Storage (주식 수집) | 16:00·21:00 두 번 자동 수집 (1600 수집만, 2100 뒤 업로드), KRX 시총 2015-06~ 백필, 정규장 추정 거래대금 칸 추가 | 11-04 첫 자동 실행 확인, docs 갱신 | [[Projects/Storage/README\|Storage]] |
 | Daily (주식 일지) | 옵시디언 보관함 구축 + 폰 동기화 완료, 11/02·11/03 입력 | 폰 화면 확인, 테마 입력, Syncthing 자동 실행 | [[Projects/Daily/README\|Daily]] |
-| Surge (10%↑ 종목 추리기) | 11/01 이후 10%↑ 69건을 MotherDuck `surge.picks` + 날짜별 CSV 로 저장 | "1600 끝났어" 받으면 `surge_daily.py` 실행, Daily 로 옮기기, 제외 규칙·필터 정하기 | [[Projects/Surge/README\|Surge]] |
+| Surge (10%↑ 종목 추리기) | 11/02·11/03 10%↑ 69건 날짜별 CSV 저장. `surge_daily.py` 는 로컬 DB 읽기 전용·CSV 만 (거래대금 `amount_est` 정규장 추정) | "1600 끝났어" 받으면 `surge_daily.py` 실행, Daily 가져오는 방법·제외 규칙 정하기 | [[Projects/Surge/README\|Surge]] |
 | Brain (볼트 구축·규칙) | 설정 완료, 폴더 이름 정리, 열기 규칙 변경 | `.obsidian/` 커밋 여부 결정 ([[인수인계-2026-11-03]]) | [[Projects/Brain/README\|Brain]] |
 
 ## 폴더
