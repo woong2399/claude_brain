@@ -4,7 +4,7 @@
     - [[Null]] || [[종목(코드)]] +00.00%<br>이슈<br>관련 기사
 
 사용법 (Windows 에서는 python 대신 py):
-    py csv_to_daily.py                  이 폴더의 모든 CSV
+    py csv_to_daily.py                  CSV_DIR(Documents/surge)의 모든 CSV
     py csv_to_daily.py 2026-11-04       그 날짜만 (여러 개 가능)
     py csv_to_daily.py --dry-run        파일은 쓰지 않고 무엇을 할지만 보여 줌
 
@@ -21,7 +21,7 @@ from collections import defaultdict
 from pathlib import Path
 
 VAULT = Path(r"C:\Users\Jinwo\Documents\Obsidian\Daily")
-CSV_DIR = Path(__file__).resolve().parent
+CSV_DIR = Path(r"C:\Users\Jinwo\Documents\surge")  # surge_daily.py 가 날짜별 CSV 를 만드는 폴더
 
 NO_THEME = "Null"   # 테마를 아직 모를 때 쓰는 링크 (테마/Null.md)
 ISSUE_LABEL = ""    # 예: "이슈: " 로 바꾸면 줄에 "이슈: " 가 미리 들어간다
