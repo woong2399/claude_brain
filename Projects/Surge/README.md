@@ -17,7 +17,7 @@ updated: 2026-11-03
 
 ## 다음 할 일
 0. 11-04 16:00 첫 자동 수집이 끝나면 "1600 끝났어"를 받아 `surge_daily.py` 를 처음 실제 날짜로 돌려 확인하기
-1. Daily 세션이 일지로 가져오는 방법 정하기 (지금은 날짜별 CSV 뿐이고 MotherDuck 은 갱신 안 함 → CSV 를 쓸지, MotherDuck 에도 올릴지)
+1. (정해짐) Daily 세션은 Surge 의 날짜별 CSV 를 `csv_to_daily.py` 로 읽어 일지를 만든다 ([[Projects/Daily/README|Daily]], 인덱스 기준). MotherDuck 은 쓰지 않는다. 남은 확인: 새 CSV 열 이름 `amount_est` 와 `csv_to_daily.py` 가 맞는지 (미확인)
 2. 11/03 17종목(Daily) vs 21종목(Surge) 차이 확인 → 거래대금 필터 등 기준 정하기
 3. 제외 규칙(신규상장 첫날, 거래정지 직후, 수정주가 변경일)과 기간 확장 여부 정하기, 정하면 `docs/조건정의서` 에 반영
 
