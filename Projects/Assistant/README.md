@@ -9,6 +9,7 @@ updated: 2026-11-06
 뉴스로 앞으로의 시나리오를 추론해 **보고서**를 만들고 **일정**을 관리하는, 사용자의 주식 비서. Storage·Surge·Daily·News 가 모두 이 비서의 부품이다. 목표와 구조 초안은 [[Knowledge/주식비서-목표와구조]].
 
 ## 현재 상태
+- **2026-11-06 늦게 변경:** Streamlit 첫 화면은 이제 **급등주 일지만**(장전 보고서 화면은 `report_view/` 로 옮겨 보존). 같은 일지를 **Claude 아티팩트**로도 만듦(https://claude.ai/artifact/9gnBy8pZpJtdpaB8AUE2Rc, 데이터는 복사본이라 갱신은 Claude 에게 요청). **Streamlit/아티팩트 중 쓸 쪽은 사용자가 비교 중.**
 - **2026-11-06 클라우드 배포:** 보고서를 MotherDuck `assistant.report_doc` 에 올리고 **Streamlit 클라우드**(공개 주소)로 배포. 코드는 GitHub 공개 `woong2399/assistant`. 화면 두 개: 장전 보고서(`app.py`), **급등주 일지**(`pages/1_급등주_일지.py`, 읽기 전용, 데이터 `daily_pick`). 일지는 `daily_data\data` JSON 을 `py src\load_daily.py` 로 올린다. **대시보드는 이 프로젝트에서만 고친다**(Daily 는 데이터만). 폰 화면 미확인. → [[2026-11-06-클라우드배포와일지]], [[Knowledge/주식비서-클라우드화면]]
 - (아래 "MotherDuck 에 올리지 않고 PC JSON/Tailscale" 줄들은 11-05 기준 옛 상태. PC 서버 `100.92.146.20:8501` 은 이제 예비.)
 - 2026-11-05: 프로젝트 폴더 생성, **기획 진행 중**. 장전 보고서(08:00) 아웃라인 확정 → [[docs/보고서-아웃라인]], 예정 행사 일정표 → [[docs/일정표-2026]]. 마감전 보고서는 나중.
