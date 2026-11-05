@@ -26,7 +26,7 @@ updated: 2026-11-05
 2. 수집 최신성: 하루 몇 번 자동 수집(작업 스케줄러)과 RSS 추가 여부 정하기. 연합·뉴시스·서울경제는 오늘부터 쌓는 방식으로 붙일지
 3. Apps Script 재배포 후 확인, 이데일리 하루치 수집(약 29분), 양질 뉴스 결과를 사용자가 보고 기준 조정
 4. 급등 종목(Surge) ↔ 같은 날 뉴스 연결 시험
-5. 2단계 `dart.py`(공급계약 공시 + 실적 발표 공시, 보고서용 "주목 공시"). [[Projects/Assistant/README|Assistant]] 가 `news.db` 를 읽는다(2026-11-05 결정, 별도 `disclosures` 표 제안), DART 키 발급, `news` 폴더 git 커밋 여부
+5. 2단계 `dart.py`(공급계약 공시 + 실적 발표 공시, 보고서용 "주목 공시"). [[Projects/Assistant/README|Assistant]] 가 `news.db` 를 읽는다(2026-11-05 결정, 별도 `disclosures` 표 제안). **공시는 임시로 Assistant 의 `src/dart.py` 에 만들어 둠**(News 개편 중이라 충돌 피함, 계약·주주환원·리스크 키워드, 나중에 옮김), DART 키 발급, `news` 폴더 git 커밋 여부
 
 ## 중요한 결정
 - 기사 원본은 볼트가 아니라 `news\data\news.db`(SQLite) 에 둔다. 볼트에는 기획·요약·공부 노트만. 이유: 기사가 하루 수백~수천 건이라 볼트가 무거워진다 (Daily·Surge 와 같은 방식). 옵시디언에서 기사 보기는 **나중에** (사용자).
