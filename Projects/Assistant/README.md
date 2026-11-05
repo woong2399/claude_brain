@@ -12,9 +12,11 @@ updated: 2026-11-05
 - 2026-11-05: 프로젝트 폴더 생성, **기획 진행 중**. 장전 보고서(08:00) 아웃라인 확정 → [[docs/보고서-아웃라인]], 예정 행사 일정표 → [[docs/일정표-2026]]. 마감전 보고서는 나중.
 - **공시(DART) 수집은 News 프로젝트에서 한다**(사용자 결정). 인증키는 사용자가 발급해 `news\.env` 에 `DART_API_KEY` 로 둠(채팅에 붙이지 않음).
 - **코드 폴더: `C:\Users\Jinwo\Documents\assistant`** (사용자가 만든 빈 폴더 사용). git 저장소는 아직 안 만듦(미정). 실행 `run_report.bat` 또는 `python src\run_report.py [--dry-run]`.
-- **보고서는 MotherDuck 새 DB `assistant`(표 `report_run`·`market_snapshot`·`events`)에 올리고, 핸드폰에서 보는 대시보드(Dive)로 만든다**(사용자 결정). 코드가 쓰고 Dive 는 읽기만 한다. 폰 화면 모양은 만든 뒤 확인(미확인).
+- **보고서 저장·화면 변경(2026-11-05, 사용자): MotherDuck 에 올리지 않고 Streamlit 으로 만든다. 저장은 날짜별 JSON `data\reports\YYYY-MM-DD.json`.** 화면 `app.py`(`run_app.bat`), 수집 `run_report.bat`. 시험 통과(수집 13/13 저장, Streamlit 응답 확인). 폰 화면 모양은 미확인.
+- 앞서 만든 MotherDuck `assistant` DB(표 3개)와 Dive `장전 보고서` 는 **남아 있다**(지울지 사용자 결정 대기). 토큰이 `assistant\.env` 에 있으나 지금 코드는 쓰지 않음.
+- 폰 접속 방법 미정: A 같은 와이파이, B Tailscale(권장), C Streamlit Cloud+MotherDuck 데이터(PC 불필요하나 공개 주소·토큰 외부 저장). `run_app.bat` 은 보안상 `127.0.0.1` 로만 연다.
 - **미국 뉴스·공시 수집은 News 프로젝트에서 한다**(사용자 결정). 이 프로젝트는 하지 않는다.
-- 2026-11-05 구현: 지수·지표 13개 수집(야후 기본, FRED·frankfurter 예비) 시험 통과(`--dry-run`, 예비 소스도 시험). **MotherDuck 업로드는 토큰 대기** — 사용자가 새 토큰을 만들어 `assistant\.env` 의 `MOTHERDUCK_TOKEN` 에 넣을 예정(채팅에 붙이지 않음).
+- 2026-11-05 구현: 지수·지표 13개 수집(야후 기본, FRED·frankfurter 예비) 시험 통과(`--dry-run`, 예비 소스도 시험). **
 - 구조(수집 → 이벤트 추출 → 지식표 → 검증 → 보고서, 일정)는 Claude 제안이고 **사용자 확정 전**.
 
 ## 부품 (이미 있는 것)
@@ -26,7 +28,7 @@ updated: 2026-11-05
 | News | 뉴스 수집·검토 (한경·이데일리) | [[Projects/News/README\|News]] |
 
 ## 다음 할 일
-1. 토큰을 `.env` 에 넣으면 업로드 시험(`run_report.bat`) → 대시보드(Dive) 첫 화면(지수·지표)
+1. 폰 접속 방법 결정(A/B/C), MotherDuck 의 옛 DB·Dive 정리 여부, 폰 화면 확인
 2. 작업 스케줄러 08:00 등록, 텔레그램 "완료 + 링크" 알림(제안)
 3. 일정표 코드화 + 휴장일 표(KRX 미확인), 종목→테마 표 씨앗(Daily 테마 노트·시트)
 4. DART 키 발급(사용자) 후 News `dart.py`, 실적 발표 대상 기업 목록 정하기
