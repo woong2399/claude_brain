@@ -11,7 +11,7 @@ updated: 2026-11-05
 | Storage (주식 수집) | 16:00·21:00 두 번 자동 수집 (1600 수집만, 2100 뒤 업로드), KRX 시총 2010-01~ 백필 완료, 정규장 추정 거래대금 칸 추가 | 11-04 첫 자동 실행 확인, krx.py 수정 커밋, docs 갱신 | [[Projects/Storage/README\|Storage]] |
 | Daily (주식 일지) | 보관함 `Documents\Obsidian\Daily` 로 이동, 플러그인 없는 새 일지 형식, Obsidian Sync 연결 확인 (폰 미확인), Surge CSV → 일지 스크립트 `csv_to_daily.py` 로 11/02·11/03 새로 생성, 구글 시트 `Daily 일지 입력`에 뉴스·텔레그램 입력, `sheet_to_journal.py` 로 11/02·11/03 일지를 `종목→뉴스→텔레그램` 형식으로 생성 | 시트의 오타·빈 칸 고치고 일지 다시 돌리기, 새 날짜 절차 굳히기, 폰 Sync 확인, Remotely Save 끄기 | [[Projects/Daily/README\|Daily]] |
 | Surge (10%↑ 종목 추리기) | 11/02·11/03 10%↑ 69건 날짜별 CSV 저장. `surge_daily.py` 는 로컬 DB 읽기 전용·CSV 만 (거래대금 `amount_est` 정규장 추정) | "1600 끝났어" 받으면 `surge_daily.py` 실행, Daily 가져오는 방법·제외 규칙 정하기 | [[Projects/Surge/README\|Surge]] |
-| News (뉴스·공시 수집 공부) | 2026-11-05 웹 수집(날짜 지정)으로 방향 바뀜. 한경 수집기 완성, 11/01 기사 179건을 `news.db` 와 구글 시트 `news` 에 저장. 2단계까지(국내 매체 → DART 공시), 폴더 `Documents\news` | 11/01 기사에 무관 표시(X)·테마 11개 정리 완료. 돌고 있는 수집이 끝나면 시트에 새 기사가 제대로 붙었는지 확인, 관심 테마 본문 읽기, 한경 179건 대조·날짜 범위 확대, 다른 매체 날짜 지정, DART 키. `run_news.bat` 으로 날짜 지정 수집(시트 연결은 11/01 시험만 통과) | [[Projects/News/README\|News]] |
+| News (뉴스·공시 수집 공부) | 2026-11-05 웹 수집(날짜 지정)으로 방향 바뀜. 한경 수집기 완성, 11/01 기사 179건을 `news.db` 와 구글 시트 `news` 에 저장. 2단계까지(국내 매체 → DART 공시), 폴더 `Documents\news` | 시트에 11/01~11/04 기사 저장, 자동 X 규칙·`review_news.bat` 작성(시트 X 표시는 Apps Script 재배포 전이라 미확인). Apps Script 새 버전 배포 후 11/02~11/04 자동 X 확인, 관심 테마 본문 읽기, 한경 179건 대조·날짜 범위 확대, 다른 매체 날짜 지정, DART 키. `run_news.bat` 으로 날짜 지정 수집(시트 연결은 11/01 시험만 통과) | [[Projects/News/README\|News]] |
 | Brain (볼트 구축·규칙) | 설정 완료, 폴더 이름 정리, 열기 규칙 변경 | `.obsidian/` 커밋 여부 결정 ([[인수인계-2026-11-03]]) | [[Projects/Brain/README\|Brain]] |
 
 ## 폴더
