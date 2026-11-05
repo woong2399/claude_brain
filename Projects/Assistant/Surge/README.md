@@ -9,7 +9,7 @@ updated: 2026-11-05
 [[Projects/Storage/README|Storage]] 에서 수집한 일봉 중, 정규장 종가 기준으로 10% 이상 상승한 종목을 모두 추린다.
 
 ## 현재 상태
-- 2026-11-04: 기간 **2026-11-01 이후(일단)**, 전일 종가 대비 10%↑ 기준으로 69건(11/02 48, 11/03 21)을 뽑아 MotherDuck `surge.main.picks`(date, code, name, pct, amount[백만 원])와 PC 폴더 `C:\Users\Jinwo\Documents\surge\`에 날짜별 CSV(`2026년 11월 2일.csv`, `2026년 11월 3일.csv`)로 저장했다. 합본 파일은 없다. 조건은 [[Projects/Surge/docs/조건정의서]], SQL 은 `code/picks_만들기.sql`.
+- 2026-11-04: 기간 **2026-11-01 이후(일단)**, 전일 종가 대비 10%↑ 기준으로 69건(11/02 48, 11/03 21)을 뽑아 MotherDuck `surge.main.picks`(date, code, name, pct, amount[백만 원])와 PC 폴더 `C:\Users\Jinwo\Documents\surge\`에 날짜별 CSV(`2026년 11월 2일.csv`, `2026년 11월 3일.csv`)로 저장했다. 합본 파일은 없다. 조건은 [[Projects/Assistant/Surge/docs/조건정의서]], SQL 은 `code/picks_만들기.sql`.
 - **2026-11-05 갱신:** 11월 분을 `surge_daily.py` 로 다시 만들어 CSV 가 **11/02(48)·11/03(21)·11/04(52)·11/05(35), 합 156건**이 되었다. 11/02·11/03 은 `amount_est` 로 바뀌었고 옛 파일은 `surge\이전_amount_애프터포함\` 에 보관했다 → [[2026-11-05-11월CSV만들기]].
 - 아직 정하지 않은 것: 제외 규칙, 거래대금 등 필터, 기간 확장 (미확인). Daily 의 11/03 17종목과 이번 21종목의 차이 원인도 미확인.
 
@@ -19,7 +19,7 @@ updated: 2026-11-05
 
 ## 다음 할 일
 0. (11/04·11/05 는 2026-11-05 에 만들었음) 새 거래일마다 "1600 끝났어"를 받아 `surge_daily.py` 실행. Daily 에서 11/04·11/05 CSV 를 일지로 옮기기
-1. (정해짐) Daily 세션은 Surge 의 날짜별 CSV 를 `csv_to_daily.py` 로 읽어 일지를 만든다 ([[Projects/Daily/README|Daily]], 인덱스 기준). MotherDuck 은 쓰지 않는다. 남은 확인: 새 CSV 열 이름 `amount_est` 와 `csv_to_daily.py` 가 맞는지 (미확인)
+1. (정해짐) Daily 세션은 Surge 의 날짜별 CSV 를 `csv_to_daily.py` 로 읽어 일지를 만든다 ([[Projects/Assistant/Daily/README|Daily]], 인덱스 기준). MotherDuck 은 쓰지 않는다. 남은 확인: 새 CSV 열 이름 `amount_est` 와 `csv_to_daily.py` 가 맞는지 (미확인)
 2. 11/03 17종목(Daily) vs 21종목(Surge) 차이 확인 → 거래대금 필터 등 기준 정하기
 3. 제외 규칙(신규상장 첫날, 거래정지 직후, 수정주가 변경일)과 기간 확장 여부 정하기, 정하면 `docs/조건정의서` 에 반영
 4. (변동성 연구) 수급 근사 지표 6개(상승분 거래량 비율·종가 위치·VWAP 대비 종가·장 막판 집중도·하락일 소화도·회전율) 검증, 같은 상승폭 안에서 급증 유무 비교, 부족하면 진짜 수급(C)을 Storage 에 추가할지 결정 (수집 경로 미확인)
@@ -29,7 +29,7 @@ updated: 2026-11-05
 - 결과는 처음에 별도 MotherDuck DB `surge` 에 저장하기로 했으나, 2026-11-04 스크립트가 로컬 DB 를 읽고 CSV 만 만드는 방식으로 바뀌었다 (사용자 확인). 이후 MotherDuck 은 갱신하지 않는다.
 - 분석 기간은 "일단 2026-11-01 이후" (사용자 결정, 나중에 확장 가능).
 - PC 사본은 날짜별 CSV 로 저장한다 (사용자 요청). 파일 이름은 `2026년 11월 2일.csv` 형식.
-- 등락률은 정규장 종가 기준. 거래대금은 정규장 분봉 추정 `amount_est` (애프터마켓 제외)로 바뀌었다 (2026-11-04). 11/02·11/03 의 옛 `amount` 는 애프터 포함 → [[Projects/Surge/docs/조건정의서]].
+- 등락률은 정규장 종가 기준. 거래대금은 정규장 분봉 추정 `amount_est` (애프터마켓 제외)로 바뀌었다 (2026-11-04). 11/02·11/03 의 옛 `amount` 는 애프터 포함 → [[Projects/Assistant/Surge/docs/조건정의서]].
 - 추려진 종목 전체 목록은 볼트에 넣지 않는다 (행이 많아 동기화가 무거워진다). 요약과 통계만 둔다.
 
 ## 이 폴더 안

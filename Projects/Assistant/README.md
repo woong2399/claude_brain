@@ -24,13 +24,20 @@ updated: 2026-11-06
 - 2026-11-05 구현: 지수·지표 12개 수집(비트코인 뺌)(야후 기본, FRED·frankfurter 예비) 시험 통과(`--dry-run`, 예비 소스도 시험). **
 - 구조(수집 → 이벤트 추출 → 지식표 → 검증 → 보고서, 일정)는 Claude 제안이고 **사용자 확정 전**.
 
+## 하위 프로젝트 (2026-11-06 합침, 사용자 결정)
+Surge·News·Daily 폴더를 이 폴더 안으로 옮겼다(`git mv` 라 기록 보존, Storage·Brain 은 그대로). 각 하위 폴더도 `README`·`Sessions`·`Archive`·`docs`·`code` 다섯 칸을 그대로 가진다. **하위 프로젝트를 열 때는 그 폴더의 README 만 읽는다** (`CLAUDE.md`).
+- [[Projects/Assistant/Daily/README|Daily]] — 일지·급등주 일지 화면용 데이터
+- [[Projects/Assistant/News/README|News]] — 뉴스·공시 수집
+- [[Projects/Assistant/Surge/README|Surge]] — 10%↑ 종목·변동성 추적
+- 이 폴더 바로 아래 `Sessions/`·`Archive/`·`docs/`·`code/` 는 **비서 본체(보고서·화면·클라우드 배포)** 기록이다.
+
 ## 부품 (이미 있는 것)
 | 부품 | 맡은 일 | 노트 |
 |---|---|---|
 | Storage | 일봉·분봉 수집 | [[Projects/Storage/README\|Storage]] |
-| Surge | 10%↑ 급등 종목 추리기 | [[Projects/Surge/README\|Surge]] |
-| Daily | 직접 쓰는 주식 일지 (비서가 대체하지 않음) | [[Projects/Daily/README\|Daily]] |
-| News | 뉴스 수집·검토 (한경·이데일리) | [[Projects/News/README\|News]] |
+| Surge | 10%↑ 급등 종목 추리기 | [[Projects/Assistant/Surge/README\|Surge]] |
+| Daily | 직접 쓰는 주식 일지 (비서가 대체하지 않음) | [[Projects/Assistant/Daily/README\|Daily]] |
+| News | 뉴스 수집·검토 (한경·이데일리) | [[Projects/Assistant/News/README\|News]] |
 
 ## 다음 할 일
 1. **폰에서 클라우드 두 화면 확인**(미확인), MotherDuck 옛 표 3개·Dive 정리 여부, 일지 올리기 자동화 여부, Streamlit 토큰 새로 만들지(스크린샷에 일부 노출됨)
