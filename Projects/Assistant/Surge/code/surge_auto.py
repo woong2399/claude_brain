@@ -33,7 +33,7 @@ import surge_sheet as S  # noqa: E402
 
 SHEET_ID = "1SpHykeusHQ9PjYCu2W46DJrbgDKmcdmWfjfcaLkgOkM"
 KEY = HERE / "secrets" / "service_account.json"
-DAILY = Path(r"C:\Users\Jinwo\Documents\daily_data")
+DAILY = Path(r"C:\Users\Jinwo\Documents\assistant\daily_data")
 RETRY_WAIT, RETRY_MAX = 600, 6
 
 

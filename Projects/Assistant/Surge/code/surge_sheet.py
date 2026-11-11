@@ -29,7 +29,7 @@ from datetime import date
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-DATA = Path(r"C:\Users\Jinwo\Documents\daily_data\data")
+DATA = Path(r"C:\Users\Jinwo\Documents\assistant\daily_data\data")
 DB = Path(r"C:\Users\Jinwo\Documents\storage\data\storage.duckdb")
 OUT = HERE / "sheet"
 HEAD = ["date", "code", "name", "pct", "amount_est", "theme", "telegram", "news"]

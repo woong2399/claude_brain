@@ -4,7 +4,7 @@ updated: 2026-11-06
 ---
 # 날짜별 JSON (`daily_data`)
 
-원본은 PC `C:\Users\Jinwo\Documents\daily_data\` (기준일 2026-11-06). 이 문서는 요약이다. 경위: [[2026-11-05-텔레그램가져오기-날짜별JSON]].
+원본은 PC `C:\Users\Jinwo\Documents\assistant\daily_data\` (기준일 2026-11-06). 이 문서는 요약이다. 경위: [[2026-11-05-텔레그램가져오기-날짜별JSON]].
 
 ## 폴더
 - `data\YYYY-MM-DD.json` — 날짜별 급등주 일지 데이터 (Assistant 클라우드 화면의 원본)
@@ -26,7 +26,7 @@ updated: 2026-11-06
 - `source`: `surge` / `telegram` / `both`. `pct` 내림차순. `code` 는 글자(앞자리 0, 영문 보존).
 
 ## 날마다 하는 순서 (수동)
-1. Surge CSV 가 `C:\Users\Jinwo\Documents\surge\` 에 생겼는지 확인.
+1. Surge CSV 가 `C:\Users\Jinwo\Documents\assistant\surge\` 에 생겼는지 확인.
 2. (시트에 테마·뉴스를 채웠다면) Claude 에게 "시트 다시 가져와" → `sheet_news.json` 갱신.
 3. `daily_data` 폴더에서 `py -3 build_daily_json.py [--since 날짜] [--dry-run]` → `data\` 갱신 (텔레그램도 이때 읽음).
 4. 올리기: `py C:\Users\Jinwo\Documents\assistant\src\load_daily.py --since 날짜` → MotherDuck `assistant.daily_pick` → 클라우드 화면.

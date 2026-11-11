@@ -9,11 +9,11 @@ updated: 2026-11-05
 [[Projects/Storage/README|Storage]] 에서 수집한 일봉 중, 정규장 종가 기준으로 10% 이상 상승한 종목을 모두 추린다.
 
 ## 현재 상태
-- 2026-11-04: 기간 **2026-11-01 이후(일단)**, 전일 종가 대비 10%↑ 기준으로 69건(11/02 48, 11/03 21)을 뽑아 MotherDuck `surge.main.picks`(date, code, name, pct, amount[백만 원])와 PC 폴더 `C:\Users\Jinwo\Documents\surge\`에 날짜별 CSV(`2026년 11월 2일.csv`, `2026년 11월 3일.csv`)로 저장했다. 합본 파일은 없다. 조건은 [[Projects/Assistant/Surge/docs/조건정의서]], SQL 은 `code/picks_만들기.sql`.
+- 2026-11-04: 기간 **2026-11-01 이후(일단)**, 전일 종가 대비 10%↑ 기준으로 69건(11/02 48, 11/03 21)을 뽑아 MotherDuck `surge.main.picks`(date, code, name, pct, amount[백만 원])와 PC 폴더 `C:\Users\Jinwo\Documents\assistant\surge\`에 날짜별 CSV(`2026년 11월 2일.csv`, `2026년 11월 3일.csv`)로 저장했다. 합본 파일은 없다. 조건은 [[Projects/Assistant/Surge/docs/조건정의서]], SQL 은 `code/picks_만들기.sql`.
 - **2026-11-05 갱신:** 11월 분을 `surge_daily.py` 로 다시 만들어 CSV 가 **11/02(48)·11/03(21)·11/04(52)·11/05(35), 합 156건**이 되었다. 11/02·11/03 은 `amount_est` 로 바뀌었고 옛 파일은 `surge\이전_amount_애프터포함\` 에 보관했다 → [[2026-11-05-11월CSV만들기]].
 - 아직 정하지 않은 것: 제외 규칙, 거래대금 등 필터, 기간 확장 (미확인). Daily 의 11/03 17종목과 이번 21종목의 차이 원인도 미확인.
 
-- **매일 데이터 (2026-11-04 바뀜):** 사용자가 "1600 끝났어"라고 알리면 Claude 가 `surge_daily.py` 로 그날 CSV 를 만든다. 스크립트는 Storage 로컬 DuckDB 를 **읽기 전용**으로 읽고 CSV 만 만든다 (MotherDuck 에 쓰지 않음). 거래대금은 정규장 분봉 추정 `amount_est`, 애프터마켓은 안 만든다. Storage 수집 중(16:00~17:20경)에는 DB 가 잠겨 있으니 끝난 뒤 돌린다. 스크립트 `C:\Users\Jinwo\Documents\surge\surge_daily.py`, 사본 `code/surge_daily.py`.
+- **매일 데이터 (2026-11-04 바뀜):** 사용자가 "1600 끝났어"라고 알리면 Claude 가 `surge_daily.py` 로 그날 CSV 를 만든다. 스크립트는 Storage 로컬 DuckDB 를 **읽기 전용**으로 읽고 CSV 만 만든다 (MotherDuck 에 쓰지 않음). 거래대금은 정규장 분봉 추정 `amount_est`, 애프터마켓은 안 만든다. Storage 수집 중(16:00~17:20경)에는 DB 가 잠겨 있으니 끝난 뒤 돌린다. 스크립트 `C:\Users\Jinwo\Documents\assistant\surge\surge_daily.py`, 사본 `code/surge_daily.py`.
 - MotherDuck `surge.main.picks`(69행)는 처음 한 번 만든 옛 사본이라 더 갱신하지 않는다 (`amount` 는 애프터 포함). 지울지는 미정.
 - **변동성 추적 목록 연구 (2026-11-05 추가):** 목적은 매수가 아니라 "변동성 큰 종목을 추려 추적하고 수급 유입을 판단". 일봉(2021~)·분봉(2025-10~)으로 검증한 결과 **거래대금 순위·급증은 변동성은 맞히지만 방향은 못 맞힌다.** 가장 강한 목록은 "당일 ±10%↑"(하루 약 35~48개, 내일 +10%↑ 적중 약 10%, 전체 평균 1.4%). 거래대금 순위는 유동성 하한(500위)으로 쓰는 쪽. Storage 에는 진짜 수급(기관·외국인 순매수 등)이 없어 가격·거래량으로 근사하는 지표 6개를 다음에 검증한다 → [[변동성-수급-지표정리]], [[2026-11-05-변동성목록검증]].
 
