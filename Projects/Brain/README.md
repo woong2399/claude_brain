@@ -20,11 +20,11 @@ updated: 2026-11-27
 ## 현재 상태
 - **2026-11-27 (11-18~25 작업 기록):** 장중 수집기(`storage live`, 자동 실행 등록 안 함), 소외주 연구([[기준봉-통계와-실적선행지표]], 스크립트 `code/`), 텔레그램 리딩방 정리(사기 의심). → [[2026-11-27-장중수집·소외주·리딩방]]
 - **2026-11-27 인수인계:** 사용자가 앞으로 Brain 세션에서 이야기하기로 함. 자세히는 [[2026-11-27-폴더개편과인수인계]].
-- **2026-11-27:** 사용자 요청으로 Assistant·Storage 기록 폴더를 `Projects/Brain/` 아래로 옮김(코드 폴더 `Documentsssistant`·`storage` 는 그대로).
+- **2026-11-27:** 사용자 요청으로 Assistant·Storage 기록 폴더를 `Projects/Brain/` 아래로 옮김(코드 폴더 `Documents\assistant`·`storage` 는 그대로).
 - 뼈대 생성, GitHub `main` push 완료, Claude 앱 권한 추가 완료.
 - PC 쪽 설정 완료 (2026-11-03, 사용자 확인): clone, 옵시디언 볼트, Obsidian Git. 세부 값(10분 자동 동기화)은 미확인.
 - "claude_brain 읽고 시작해" 시험 통과.
-- 프로젝트: Storage, Daily, Surge, Brain (이 폴더). 저장소 이름은 `claude_brain` 그대로.
+- 프로젝트: Brain (이 폴더) 아래에 Assistant(Daily·News·Surge)와 Storage. 저장소 이름은 `claude_brain` 그대로.
 - "claude_brain 열어줘"는 프로젝트 목록부터 보여 준다 (`CLAUDE.md` 규칙, 2026-11-03).
 
 ## 다음 할 일
