@@ -1,7 +1,7 @@
 ---
 project: Brain
 repo: woong2399/claude_brain (비공개)
-updated: 2026-11-03
+updated: 2026-11-27
 ---
 # Brain (이 저장소)
 
@@ -12,7 +12,13 @@ updated: 2026-11-03
 - 주식 정보 볼트와 **별도 볼트**. 서로 파일이 섞이지 않는다.
 - GitHub 비공개 저장소 ↔ PC 옵시디언 (Obsidian Git 플러그인) ↔ 클라우드 세션 (저장소를 세션에 붙여 읽고 씀)
 
+## 하위 프로젝트
+- [[Projects/Brain/Assistant/README|Assistant]] — 주식 비서 (아래 Daily·News·Surge)
+- [[Projects/Brain/Storage/README|Storage]] — 주가 수집
+- 이 폴더 바로 아래 `Sessions/`·`Archive/`·`docs/`·`code/` 는 저장소 자체 기록이다.
+
 ## 현재 상태
+- **2026-11-27:** 사용자 요청으로 Assistant·Storage 기록 폴더를 `Projects/Brain/` 아래로 옮김(코드 폴더 `Documentsssistant`·`storage` 는 그대로).
 - 뼈대 생성, GitHub `main` push 완료, Claude 앱 권한 추가 완료.
 - PC 쪽 설정 완료 (2026-11-03, 사용자 확인): clone, 옵시디언 볼트, Obsidian Git. 세부 값(10분 자동 동기화)은 미확인.
 - "claude_brain 읽고 시작해" 시험 통과.

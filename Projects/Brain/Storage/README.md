@@ -41,7 +41,7 @@ updated: 2026-11-07
 - DB 는 한 번에 한 프로그램만 쓴다. 수집 중(평일 16:00~17:20, 21:00~23:20경)에는 조회가 안 된다. 수급 백필(`flow --since`)을 돌릴 때도 DB 가 잠기니 수집 시간과 겹치지 않게 한다.
 
 ## 이 폴더 안
-- `docs/` — 상세 문서 사본 (원본: 프로그램 저장소 `docs/`, **11-04 의 `amount_est`·KRX 백필·새 흐름은 아직 반영 안 됨**) → [[Projects/Storage/docs/README|문서 목록]]
+- `docs/` — 상세 문서 사본 (원본: 프로그램 저장소 `docs/`, **11-04 의 `amount_est`·KRX 백필·새 흐름은 아직 반영 안 됨**) → [[Projects/Brain/Storage/docs/README|문서 목록]]
 - `code/` — 조회 SQL 등 코드 조각 → [[조회-SQL]]
 - 수집 프로그램 전체 코드: `C:\Users\Jinwo\Documents\storage`, GitHub `woong2399/storage`
 

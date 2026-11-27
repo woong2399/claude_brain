@@ -4,13 +4,13 @@
 옵시디언 볼트로도 열린다. 사용자의 주식 정보 볼트와는 **별개**다.
 
 ## 세션 시작할 때
-**"claude_brain 열어줘"처럼 저장소 이름으로 열라고 하면 프로젝트부터 보여 준다.** `claude_brain` 은 저장소 전체 이름이고, `Brain` 은 그 안의 한 프로젝트(저장소를 만들 때의 기록)다. 둘을 헷갈리지 않는다.
+**"claude_brain 열어줘"처럼 저장소 이름으로 열라고 하면 프로젝트부터 보여 준다.** `claude_brain` 은 저장소 전체 이름이고, `Brain` 은 그 안의 `Projects/Brain/` 폴더(저장소를 만들 때의 기록 + 하위에 Assistant·Storage, 2026-11-27 사용자 결정)다. 둘을 헷갈리지 않는다.
 1. `00_Index.md` 만 읽고, 프로젝트 목록을 표로 보여 준다 (프로젝트 · 상태 · 다음 할 일).
 2. 프로젝트 폴더는 아직 열지 않는다. 어느 것을 열지 묻는다. `Inbox/` 에 메모가 있으면 있다고만 알린다.
 
 사용자가 "<프로젝트> 열어줘 / 읽고 시작해" 라고 프로젝트 이름을 말하면, **그 프로젝트 폴더만** 연다.
 1. `00_Index.md` 에서 프로젝트 목록을 확인한다.
-2. `Projects/<이름>/README.md` 를 읽는다. **Daily·News·Surge 는 Assistant 의 하위 폴더**라 `Projects/Assistant/<이름>/README.md` 다. "Assistant 열어줘" 는 `Projects/Assistant/README.md` 와 그 바로 아래 `Sessions/` 만 읽고, 하위 폴더는 이름을 말할 때만 연다.
+2. `Projects/Brain/<이름>/README.md` 를 읽는다("Brain 열어줘" 는 `Projects/Brain/README.md` 와 그 바로 아래 `Sessions/` 만). **Daily·News·Surge 는 Assistant 의 하위 폴더**라 `Projects/Brain/Assistant/<이름>/README.md` 다. "Assistant 열어줘" 는 `Projects/Brain/Assistant/README.md` 와 그 바로 아래 `Sessions/` 만 읽고, 하위 폴더는 이름을 말할 때만 연다.
 3. 그 폴더의 `Sessions/` 의 최근 노트 1~2개를 읽는다.
 4. `Inbox/` 에 사용자가 남긴 메모가 있으면 읽고, 처리한 뒤 알맞은 곳으로 옮긴다.
 - 프로젝트 이름을 말하지 않았으면 목록을 보여 주고 어느 것인지 묻는다.
@@ -19,7 +19,7 @@
 
 ## "기록해줘" 할 때 (또는 세션을 끝낼 때)
 **맘대로 저장하지 않는다. 먼저 어디에 저장할지 묻는다.**
-1. 질문: "어디에 기록할까요? ① 기존 폴더(`Projects/` 의 이름들을 나열, Assistant 는 아래 Daily·News·Surge 도 따로 나열) ② 새 폴더 만들기" — 사용자가 답할 때까지 파일을 쓰지 않는다.
+1. 질문: "어디에 기록할까요? ① 기존 폴더(Brain 과 `Projects/Brain/` 아래 프로젝트 이름들을 나열, Assistant 는 아래 Daily·News·Surge 도 따로 나열) ② 새 폴더 만들기" — 사용자가 답할 때까지 파일을 쓰지 않는다.
 2. 새 폴더면 이름을 묻고, `Templates/project.md` 로 `README.md`, `docs/`, `code/`, `Sessions/` 를 만든다. `00_Index.md` 표에도 한 줄 추가한다.
 3. 두 파일을 만든다. 같은 날 같은 주제가 이미 있으면 덮어쓰지 말고 이어 붙일지 묻는다.
    - `Sessions/YYYY-MM-DD-<주제>.md` — **요약** (`Templates/session.md` 형식). 맨 위에 `상세: [[YYYY-MM-DD-<주제>-상세]]` 링크를 둔다.
@@ -30,7 +30,7 @@
 7. 커밋하고 push 한다. 커밋 메시지: `brain: <날짜> <프로젝트> <한 줄>`
 
 ## 섞이지 않게 하는 규칙
-- 프로젝트마다 `Projects/<이름>/` 폴더 하나. 다른 프로젝트 내용은 넣지 않는다. **예외(2026-11-06 사용자 결정):** Daily·News·Surge 는 `Projects/Assistant/` 안의 하위 폴더이고, 이 하위 폴더도 아래 다섯 칸을 똑같이 가진다. 비서 본체의 기록은 `Projects/Assistant/` 바로 아래에, 하위 프로젝트의 기록은 그 하위 폴더에 둔다.
+- 프로젝트마다 `Projects/Brain/<이름>/` 폴더 하나(2026-11-27 사용자 결정: 모든 프로젝트를 Brain 아래에서 관리). 다른 프로젝트 내용은 넣지 않는다. `Projects/Brain/` 바로 아래의 다섯 칸은 저장소 자체의 기록이다. **또(2026-11-06 사용자 결정):** Daily·News·Surge 는 `Projects/Brain/Assistant/` 안의 하위 폴더이고, 이 하위 폴더도 아래 다섯 칸을 똑같이 가진다. 비서 본체의 기록은 `Projects/Brain/Assistant/` 바로 아래에, 하위 프로젝트의 기록은 그 하위 폴더에 둔다.
 - 프로젝트 폴더 안은 다섯 칸으로 나눈다. 서로 섞지 않는다.
   - `README.md` — 현재 상태·다음 할 일 (요약 한 장)
   - `Sessions/` — 세션 **요약**. 파일 이름은 날짜로 시작한다 (`YYYY-MM-DD-주제.md`). 열 때 읽는 곳.

@@ -11,7 +11,7 @@ updated: 2026-11-12
 ## 현재 상태
 - **2026-11-12 일지 자동화:** Storage `run_update.bat` 에 일지 단계를 붙임 — **16:00 수집이 끝나면 `surge_auto.py` 로 일지 생성, 21:00 수집(program·flow·업로드)이 끝나면 한 번 더 돌려 빈 칸 채움**(옵시디언 동기화 끔, 로그 `storage\logs\surge_auto.log`, Storage 커밋 `0472059`, push 안 함). **아직 실제로 돌아 본 적 없음.** 같은 세션에서 거래대금 화면 **신규 종목 빨간 테두리**, 종목 화면 **➕ 종목 추가**(화면 말 "내 종목"), Storage 수급 수집 하한선용 **거래대금 분포 조사**(상위 500위 평균 31억) 완료. 하한선은 미결정. → [[2026-11-12-신규테두리·종목추가·거래대금분포·일지자동화]]
 - **2026-11-11 일지 앱:** 앱을 "일지"(`woong-daily.streamlit.app`)라 부름. **종목 화면에서만 수정**(테마·거래대금 이유·관심종목 한줄평), 테마 오타 방지·목록 선택, 테마 일괄 이름 바꾸기·합치기(테마 화면 🛠), 비밀번호 기기당 한 번. **구글 시트 둘을 amount 시트 하나로 합침**(옛 surge 시트는 백업). 클라우드에서 실제 저장·`surge_auto.py` 실행은 아직 미확인. 이 세션에서 Obsidian 일지는 만들지 않음. **PC 폴더도 합침: `surge`·`surge_app`·`news`·`daily_data` 는 이제 `C:\Users\Jinwo\Documents\assistant\` 아래**(Storage 는 그대로). → [[2026-11-11-일지앱-수정기능과시트합치기]], [[Knowledge/종목창고-시트-앱]]
-- **2026-11-07:** 기준봉(500억)+480일선 돌파 연구와 박스권 찾기 시도, DB 수급 데이터 가능 여부 확인 → [[2026-11-07-캔들연구와박스권]](박스권은 기준을 못 정하고 중단, 캔들 시트 내용은 사용자 요청으로 비움). 뉴스 필터·일일 리포트는 [[Projects/Assistant/News/README|News]]. 대시보드(`surge_app`)에 "리포트" 화면을 **로컬에서만** 추가(미push).
+- **2026-11-07:** 기준봉(500억)+480일선 돌파 연구와 박스권 찾기 시도, DB 수급 데이터 가능 여부 확인 → [[2026-11-07-캔들연구와박스권]](박스권은 기준을 못 정하고 중단, 캔들 시트 내용은 사용자 요청으로 비움). 뉴스 필터·일일 리포트는 [[Projects/Brain/Assistant/News/README|News]]. 대시보드(`surge_app`)에 "리포트" 화면을 **로컬에서만** 추가(미push).
 - **2026-11-06 종목 창고:** Surge 10%↑ 종목(+텔레그램에만 나온 종목)을 **구글 시트 `surge`** 의 `이력` 탭에 쌓고(테마 F열·텔레그램 G열·뉴스 H열), 시트를 직접 읽는 **Streamlit 앱 `surge_app`**(이슈·종목·테마 세 장, 주소 `woong-daily.streamlit.app`, GitHub `woong2399/surge_app`)을 배포했다. 시트를 고치면 1분 안에 앱에 반영. 하루치를 시트까지 올리는 자동화 `surge\surge_auto.py`(서비스 계정)는 만들었지만 **실제 시트 쓰기·전체 한 바퀴는 아직 못 돌림**(Storage 수집이 DB 를 잡고 있었음). 아래 "늦게 변경"의 일지 화면·아티팩트는 이제 쓰지 않는 쪽. → [[2026-11-06-종목창고와자동화]], [[Knowledge/종목창고-시트-앱]]
 - **2026-11-06 늦게 변경:** Streamlit 첫 화면은 이제 **급등주 일지만**(장전 보고서 화면은 `report_view/` 로 옮겨 보존). 같은 일지를 **Claude 아티팩트**로도 만듦(https://claude.ai/artifact/9gnBy8pZpJtdpaB8AUE2Rc, 데이터는 복사본이라 갱신은 Claude 에게 요청). **Streamlit/아티팩트 중 쓸 쪽은 사용자가 비교 중.**
 - **2026-11-06 클라우드 배포:** 보고서를 MotherDuck `assistant.report_doc` 에 올리고 **Streamlit 클라우드**(공개 주소)로 배포. 코드는 GitHub 공개 `woong2399/assistant`. 화면 두 개: 장전 보고서(`app.py`), **급등주 일지**(`pages/1_급등주_일지.py`, 읽기 전용, 데이터 `daily_pick`). 일지는 `daily_data\data` JSON 을 `py src\load_daily.py` 로 올린다. **대시보드는 이 프로젝트에서만 고친다**(Daily 는 데이터만). 폰 화면 미확인. → [[2026-11-06-클라우드배포와일지]], [[Knowledge/주식비서-클라우드화면]]
@@ -30,18 +30,18 @@ updated: 2026-11-12
 
 ## 하위 프로젝트 (2026-11-06 합침, 사용자 결정)
 Surge·News·Daily 폴더를 이 폴더 안으로 옮겼다(`git mv` 라 기록 보존, Storage·Brain 은 그대로). 각 하위 폴더도 `README`·`Sessions`·`Archive`·`docs`·`code` 다섯 칸을 그대로 가진다. **하위 프로젝트를 열 때는 그 폴더의 README 만 읽는다** (`CLAUDE.md`).
-- [[Projects/Assistant/Daily/README|Daily]] — 일지·급등주 일지 화면용 데이터
-- [[Projects/Assistant/News/README|News]] — 뉴스·공시 수집
-- [[Projects/Assistant/Surge/README|Surge]] — 10%↑ 종목·변동성 추적
+- [[Projects/Brain/Assistant/Daily/README|Daily]] — 일지·급등주 일지 화면용 데이터
+- [[Projects/Brain/Assistant/News/README|News]] — 뉴스·공시 수집
+- [[Projects/Brain/Assistant/Surge/README|Surge]] — 10%↑ 종목·변동성 추적
 - 이 폴더 바로 아래 `Sessions/`·`Archive/`·`docs/`·`code/` 는 **비서 본체(보고서·화면·클라우드 배포)** 기록이다.
 
 ## 부품 (이미 있는 것)
 | 부품 | 맡은 일 | 노트 |
 |---|---|---|
-| Storage | 일봉·분봉 수집 | [[Projects/Storage/README\|Storage]] |
-| Surge | 10%↑ 급등 종목 추리기 | [[Projects/Assistant/Surge/README\|Surge]] |
-| Daily | 직접 쓰는 주식 일지 (비서가 대체하지 않음) | [[Projects/Assistant/Daily/README\|Daily]] |
-| News | 뉴스 수집·검토 (한경·이데일리) | [[Projects/Assistant/News/README\|News]] |
+| Storage | 일봉·분봉 수집 | [[Projects/Brain/Storage/README\|Storage]] |
+| Surge | 10%↑ 급등 종목 추리기 | [[Projects/Brain/Assistant/Surge/README\|Surge]] |
+| Daily | 직접 쓰는 주식 일지 (비서가 대체하지 않음) | [[Projects/Brain/Assistant/Daily/README\|Daily]] |
+| News | 뉴스 수집·검토 (한경·이데일리) | [[Projects/Brain/Assistant/News/README\|News]] |
 
 ## 다음 할 일
 - **(2026-11-12)** ① 오늘 17:20·23:20 이후 `storage\logs\surge_auto.log` 로 자동 일지 확인 ② Storage 수급 수집 하한선 결정(순위 500 컷 vs 30·40·50억 금액 컷, 일지 종목 포함 여부) 후 계획 보여 주고 적용 ③ 앱에서 종목 추가·테마 수정 실제 저장 시험 ④ `news-rss-collect` 가 새 경로에서 도는지 `news\data\rss\run.log` 확인 ⑤ `assistant` 저장소 미커밋 변경(`.gitignore`, `src/load_daily.py`) 처리 여부
